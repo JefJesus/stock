@@ -18,6 +18,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import br.gov.rj.faeterj.estoque.controller.ProdutosController;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @Configuration
 @ComponentScan(basePackageClasses = { ProdutosController.class })//(2)Define onde encontrar os controllers
@@ -50,6 +51,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		// (5) Responsável por pegar o templateResolver para colocá-lo
 		// em ação, quem implementará a aplicação MVC
 		// Ele irá processar os arquivos HTML
+		engine.addDialect(new LayoutDialect());
 		return engine;
 	}
 
